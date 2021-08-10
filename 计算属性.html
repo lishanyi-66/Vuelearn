@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>监视属性介绍</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src='./js/vue.js'></script>
+  </head>
+  <body>
+    <!-- 准备一个容器 -->
+    <div id="root">
+      姓：<input type="text"  v-model='firstName'>
+      名：<input type="text"  v-model='lastName'>
+      <h3>{{fullName}}</h3>
+    </div>
+  </body>
+  <script type="text/javascript">
+  Vue.config.productionTip=false //阻止vue在启动时生产提示
+  const vm=new Vue({
+    el:'#root',
+    data:{
+      firstName:'zhang',
+      lastName:'san',
+      // fullName:''
+    },
+    computed:{
+      fullName(){
+        return this.firstName+'-'+this.lastName
+      }
+    },
+    // watch:{
+    //   firstName(newValue){
+    //     this.fullName=newValue+'-'+this.lastName
+    //   }
+    // }
+  })
+  </script>
+</html>
