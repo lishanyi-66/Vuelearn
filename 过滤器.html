@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>过滤器</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src='./js/vue.js'></script>
+    <script src="./js/day.js"></script>
+  </head>
+  <body>
+    <!-- 准备一个容器 -->
+    <div id="root">
+      <h2>显示格式化后的时间</h2>
+      <h3>{{time | timeFormater}}</h3>
+    </div>
+  </body>
+  <script type="text/javascript">
+  Vue.config.productionTip=false //阻止vue在启动时生产提示
+  const vm=new Vue({
+    el:'#root',
+    data:{
+        time:1630423858881
+    },
+    //过滤器实现
+    filters:{
+        timeFormater(value){
+            return dayjs(value).format('YYYY年MM月DD日 HH:mm:ss')
+        }
+    }
+  })
+  </script>
+</html>
